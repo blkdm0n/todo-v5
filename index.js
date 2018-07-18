@@ -5,7 +5,7 @@ var todoList = {
       console.log(`Your todo list is empty!`);
     } else {
         for (let i = 0; i < this.todos.length; i++) {
-        console.log(this.todos[i].todoText);
+        console.log(`${this.todos[i].todoText}, ${this.todos[i].completed}`);
       }
     }
   },
@@ -20,6 +20,14 @@ var todoList = {
     for (let i = 0; i < this.todos.length; i++) {
       if (this.todos[i].todoText === oldTodo) {
         this.todos[i].todoText = newTodo;
+      }
+    }
+    this.displayTodos();
+  },
+  toggleCompleted: function (completedTodo) {
+    for (let i = 0; i < this.todos.length; i++) {
+      if (this.todos[i].todoText === completedTodo) {
+        this.todos[i].completed = !this.todos[i].completed;
       }
     }
     this.displayTodos();
